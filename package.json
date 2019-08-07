@@ -1,0 +1,46 @@
+{
+  "name": "nodejs-test",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Implementation of test project using koa2.",
+  "main": "index.js",
+  "keywords": [
+    "koa",
+    "mysql",
+    "rest-api"
+  ],
+  "bugs": {
+    "url": "https://github.com/Milad/nodejs-test/issues"
+  },
+  "author": "Milad Kawas <miladkaleh@gmail.com>",
+  "contributors": [
+    {
+      "name": "Milad Kawas",
+      "email": "miladkaleh@gmail.com",
+      "url": "https://github.com/Milad"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Milad/nodejs-test.git"
+  },
+  "homepage": "https://github.com/Milad/nodejs-test",
+  "engines": {
+    "node": ">=10.16.1"
+  },
+  "scripts": {
+    "lint": "standard",
+    "lint:fix": "standard --fix",
+    "start": "node .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "koa": "^2.7.0",
+    "mysql2": "^1.6.5"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1",
+    "standard": "^13.1.0"
+  }
+}
