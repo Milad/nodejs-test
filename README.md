@@ -25,7 +25,8 @@ The applications uses [JavaScript Standard Style](https://standardjs.com/).
 
 ## Example Requests
 The application features a simple RESTFUL API to expose books data to the clients.
-### Adding a book
+
+### Adding a Book
 ```http request
 POST /books HTTP/1.1
 Host: localhost:3000
@@ -40,7 +41,8 @@ Accept: application/json
   "image": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1524102644l/36809135.jpg"
 }
 ```
-### Updating a book
+
+### Updating a Book
 Update the book, whose id is 99, with new author information.
 Any property of the book can be updated this way.
 ```http request
@@ -54,8 +56,16 @@ Accept: application/json
 }
 ```
 
+### Fetch a Book
+```http request
+GET /books/55 HTTP/1.1
+Host: localhost:3000
+Accept: application/json
+```
+
 ## Todo
 In a real-world application, I'd also do these:
 - Client authentication and authorization.
 - Create automated tests (unit tests & integration tests) for the application.
 - Create Swagger documentation.
+- Dockerfile

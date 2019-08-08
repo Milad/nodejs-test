@@ -18,8 +18,6 @@ const data = books
     }
   })
 
-console.log(data)
-
 module.exports = {
   up: queryInterface => queryInterface.bulkInsert(tableName, data),
   down: queryInterface => queryInterface.bulkDelete(tableName, { id: { [Op.in]: data.map(item => item.id) } })
