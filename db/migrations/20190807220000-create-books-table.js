@@ -32,6 +32,9 @@ module.exports = {
         allowNull: true
       }
     })
+      .then(() => queryInterface.addIndex(tableName, ['title']))
+      .then(() => queryInterface.addIndex(tableName, ['release_date']))
+      .then(() => queryInterface.addIndex(tableName, ['author']))
   },
   down: queryInterface => queryInterface.dropTable(tableName)
 }
