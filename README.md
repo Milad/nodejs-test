@@ -16,6 +16,7 @@
 - Run `npm run db:migrate` migrations to create the table(s) .
 - Run `npm run db:seed` to seed the initial data.
 - Run the application `npm start`
+- Reach the application through `http://localhost:3000` and try the [example HTTP requests](#example-requests).
 
 ## Note about Sequelize
 The task says that we shouldn't use an ORM or a Query Builder. The usage of Sequelize is only to make it easier to run migrations and seeds. Sequelize itself is not used in the app.
@@ -62,6 +63,35 @@ GET /books/55 HTTP/1.1
 Host: localhost:3000
 Accept: application/json
 ```
+### Search for Books
+```http request
+GET /books?title=Hamlet&sort_by=release_date&direction=ASC HTTP/1.1
+Host: localhost:3000
+Accept: application/json
+```
+All the search conditions can be used as query in the URL.
+
+#### Searchable Fields
+The supported fields are:
+- `title`
+- `release_date`
+- `author`
+
+We can add search by `description` (possibly using FULLTEXT search for this field).
+
+#### Results Sorting and Ordering
+You can use the parameter `sort_by` to choose a field to sort by. Results can be sorted by:
+- `id` (default)
+- `title`
+- `release_date`
+- `author`
+
+The order order of results can be defined by the parameter `direction`, which has two possible values:
+- `asc` or `ASC` (default)
+- `desc` or `DESC`
+
+#### Pagination
+TODO
 
 ## Todo
 In a real-world application, I'd also do these:
