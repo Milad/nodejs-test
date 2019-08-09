@@ -26,6 +26,9 @@ The applications uses [JavaScript Standard Style](https://standardjs.com/).
 
 ## Example Requests
 The application features a simple RESTFUL API to expose books data to the clients.
+Some guidelines I usually follow:
+- [Using HTTP Methods for RESTful Services](https://www.restapitutorial.com/lessons/httpmethods.html)
+- [Pagination in the REST API](https://developer.atlassian.com/server/confluence/pagination-in-the-rest-api/)
 
 ### Adding a Book
 ```http request
@@ -65,7 +68,7 @@ Accept: application/json
 ```
 ### Search for Books
 ```http request
-GET /books?title=Hamlet&sort_by=release_date&direction=ASC HTTP/1.1
+GET /books?title=Hamlet&sort_by=release_date&direction=ASC&per_page=10&page=2 HTTP/1.1
 Host: localhost:3000
 Accept: application/json
 ```
@@ -91,7 +94,27 @@ The order order of results can be defined by the parameter `direction`, which ha
 - `desc` or `DESC`
 
 #### Pagination
-TODO
+You can use two parameters in the query string:
+- `per_page`: The number of results per page. Default: 10. Max: 25
+- `page`: The page number that you want to fetch from the API.
+
+The response will contain an object called `_link`. Example:
+```json
+{
+    "_links": {
+        "base": "http://localhost:3000",
+        "context": "",
+        "self": "http://localhost:3000/books?author=William+Shakespeare&sort_by=release_date&direction=desc&per_page=10&page=2",
+        "prev": "/books?author=William+Shakespeare&sort_by=release_date&direction=desc&per_page=10&page=1",
+        "next": "/books?author=William+Shakespeare&sort_by=release_date&direction=desc&per_page=10&page=3"
+    },
+    "results": [
+      // ...
+    ]
+}
+```
+
+If there is a previous page or a next page, they will show in this object respectively.
 
 ## Todo
 In a real-world application, I'd also do these:

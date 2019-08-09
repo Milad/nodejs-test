@@ -44,7 +44,8 @@
     "koa": "^2.7.0",
     "koa-body": "^4.1.0",
     "koa-router": "^7.4.0",
-    "mysql2": "^1.6.5"
+    "mysql2": "^1.6.5",
+    "pagination-logic": "^0.1.4"
   },
   "devDependencies": {
     "nodemon": "^1.19.1",
